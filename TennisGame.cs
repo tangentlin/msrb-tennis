@@ -6,21 +6,25 @@ namespace Tennis
   {
     private int m_score1 = 0;
     private int m_score2 = 0;
-    private string player1Name;
-    private string player2Name;
+    private string m_player1Name;
+    private string m_player2Name;
 
-    public TennisGame(string player1Name, string player2Name)
+    public TennisGame(string mPlayer1Name, string mPlayer2Name)
     {
-      this.player1Name = player1Name;
-      this.player2Name = player2Name;
+      this.m_player1Name = mPlayer1Name;
+      this.m_player2Name = mPlayer2Name;
     }
 
     public void WonPoint(string playerName)
     {
-      if (playerName == "player1")
+      if (playerName == m_player1Name)
+      {
         m_score1 += 1;
-      else
+      }
+      else if (playerName == m_player2Name)
+      {
         m_score2 += 1;
+      }
     }
 
     public string GetScore()
