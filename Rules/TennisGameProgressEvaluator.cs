@@ -1,6 +1,6 @@
 ﻿using Tennis.Models;
 
-namespace Tennis
+namespace Tennis.Rules
 {
   public class TennisGameProgressEvaluator : IGameProgressEvaluator
   {

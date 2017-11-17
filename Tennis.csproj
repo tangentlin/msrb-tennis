@@ -45,15 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="IGameProgressEvaluator.cs" />
     <Compile Include="Models\GamePlayerScore.cs" />
     <Compile Include="Models\GameProgressSummary.cs" />
     <Compile Include="Models\GameSummaryResult.cs" />
     <Compile Include="Models\LeadAndTrail.cs" />
+    <Compile Include="Rules\GameProgressEvaluatorTest.cs" />
+    <Compile Include="Rules\IGameProgressEvaluator.cs" />
+    <Compile Include="Rules\TennisGameProgressEvaluator.cs" />
     <Compile Include="TennisGame.cs" />
-    <Compile Include="TennisGameProgressEvaluator.cs" />
     <Compile Include="TennisTest.cs" />
-    <Compile Include="GameProgressEvaluatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

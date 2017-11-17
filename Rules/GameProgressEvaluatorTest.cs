@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Tennis.Models;
 
-namespace Tennis
+namespace Tennis.Rules
 {
   [TestFixture(0, 0, GameProgressSummary.Tie, null)]
   [TestFixture( 1, 1, GameProgressSummary.Tie, null)]
