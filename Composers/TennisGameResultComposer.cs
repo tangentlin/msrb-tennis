@@ -7,6 +7,8 @@ namespace Tennis.Composers
   /// <summary>
   /// Game Result Composer takes the game result literally, and compose a human understandable
   /// description of the game result.
+  /// All text templates may include one or more of the following tokens
+  /// {LeaderName}, {Player1Score}, {Player2Score}, {Player1Name}, {Player2Name}
   /// </summary>
   public abstract class TennisGameResultComposer : IGameResultComposer
   {
@@ -53,6 +55,9 @@ namespace Tennis.Composers
       return Smart.Format(textFormat, vm);
     }
 
+    /// <summary>
+    /// Text template of a result where one player has advantage
+    /// </summary>
     public abstract string AdvantageResultTextTemplate { get; set; }
     public abstract string DeuceResultTextTemplate { get; set; }
     public abstract string LeadResultTextTemplate { get; set; }

@@ -9,7 +9,16 @@ namespace Tennis
     private GamePlayerScore m_playerScore1;
     private GamePlayerScore m_playerScore2;
     
+    /// <summary>
+    /// An evaluator that can be used to describe the game progress/result in a
+    /// language-agnostic model
+    /// </summary>
     public IGameProgressEvaluator ProgressEvaluator = new TennisGameProgressEvaluator();
+    
+    /// <summary>
+    /// A composer that can be used to translate game result model into a
+    /// human-understandable form
+    /// </summary>
     public IGameResultComposer GameResultComposer = new EnglishTennisGameResultComposer();
 
     public TennisGame(string mPlayer1Name, string mPlayer2Name)
