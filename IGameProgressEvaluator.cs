@@ -4,6 +4,6 @@ namespace Tennis
 {
   public interface IGameProgressEvaluator
   {
-    GameSummaryResult GetProgress(int score1, int score2);
+    GameSummaryResult GetProgress(GamePlayerScore score1, GamePlayerScore score2);
   }
 }
