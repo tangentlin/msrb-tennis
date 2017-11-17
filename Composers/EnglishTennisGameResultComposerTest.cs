@@ -15,7 +15,7 @@ namespace Tennis.Composers
       m_composer = new EnglishTennisGameResultComposer();
     }
     
-    GameSummaryResult GetResultModel(GameProgressSummary progressSummary, int score1, int score2,
+    GameResult GetResultModel(GameProgressSummary progressSummary, int score1, int score2,
       int? leaderIndex = null)
     {
       GamePlayerScore playerScore1 = new GamePlayerScore
@@ -41,7 +41,7 @@ namespace Tennis.Composers
         leader = playerScore2;
       }
 
-      return new GameSummaryResult
+      return new GameResult
       {
         ProgressSummary = progressSummary,
         Leader = leader,

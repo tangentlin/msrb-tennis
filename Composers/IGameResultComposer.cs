@@ -4,6 +4,6 @@ namespace Tennis.Composers
 {
   public interface IGameResultComposer
   {
-    string GetResultText(GameSummaryResult result);
+    string GetResultText(GameResult result);
   }
 }

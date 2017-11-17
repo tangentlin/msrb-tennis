@@ -23,7 +23,7 @@ namespace Tennis.Composers
       this.WinResultTextTemplate = "";
     }
 
-    public string GetResultText(GameSummaryResult result)
+    public string GetResultText(GameResult result)
     {
       TennisGameResultViewModel vm = new TennisGameResultViewModel(this.nonDeuceScoreText, result);
 
@@ -64,13 +64,13 @@ namespace Tennis.Composers
   public class TennisGameResultViewModel
   {
     private readonly Dictionary<int, string> m_nonDeuceScoreText;
-    public TennisGameResultViewModel(Dictionary<int, string> nonDeuceScoreText, GameSummaryResult result)
+    public TennisGameResultViewModel(Dictionary<int, string> nonDeuceScoreText, GameResult result)
     {
       this.Result = result;
       this.m_nonDeuceScoreText = nonDeuceScoreText;
     }
     
-    public GameSummaryResult Result { get; set; }
+    public GameResult Result { get; set; }
 
     public string GetScoreText(int score)
     {

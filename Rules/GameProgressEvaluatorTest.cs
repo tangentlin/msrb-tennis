@@ -75,7 +75,7 @@ namespace Tennis.Rules
     {
       TennisGameProgressEvaluator evaluator = new TennisGameProgressEvaluator();
 
-      GameSummaryResult result = evaluator.GetProgress(m_score1, m_score2);
+      GameResult result = evaluator.GetProgress(m_score1, m_score2);
 
       Assert.AreEqual(m_expectedSummary, result.ProgressSummary);
 

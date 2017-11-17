@@ -1,6 +1,6 @@
 ﻿namespace Tennis.Models
 {
-  public class GameSummaryResult
+  public class GameResult
   {
     public GameProgressSummary ProgressSummary { get; set; }
     

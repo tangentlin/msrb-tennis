@@ -8,9 +8,9 @@ namespace Tennis.Rules
     private int m_minimumDeuceScore = 3;
     private int m_dueceToWinDifference = 2;
     
-    public GameSummaryResult GetProgress(GamePlayerScore score1, GamePlayerScore score2)
+    public GameResult GetProgress(GamePlayerScore score1, GamePlayerScore score2)
     {
-      GameSummaryResult result = new GameSummaryResult();
+      GameResult result = new GameResult();
       result.PlayerScore1 = score1;
       result.PlayerScore2 = score2;
       

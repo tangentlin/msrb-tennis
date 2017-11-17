@@ -4,6 +4,6 @@ namespace Tennis.Rules
 {
   public interface IGameProgressEvaluator
   {
-    GameSummaryResult GetProgress(GamePlayerScore score1, GamePlayerScore score2);
+    GameResult GetProgress(GamePlayerScore score1, GamePlayerScore score2);
   }
 }

@@ -1,85 +1,48 @@
-﻿using System;
+﻿using Tennis.Composers;
+using Tennis.Models;
+using Tennis.Rules;
 
 namespace Tennis
 {
   public class TennisGame
   {
-    private int m_score1 = 0;
-    private int m_score2 = 0;
-    private string m_player1Name;
-    private string m_player2Name;
+    private GamePlayerScore m_playerScore1;
+    private GamePlayerScore m_playerScore2;
+    
+    public IGameProgressEvaluator ProgressEvaluator = new TennisGameProgressEvaluator();
+    public IGameResultComposer GameResultComposer = new EnglishTennisGameResultComposer();
 
     public TennisGame(string mPlayer1Name, string mPlayer2Name)
     {
-      this.m_player1Name = mPlayer1Name;
-      this.m_player2Name = mPlayer2Name;
+      m_playerScore1 = new GamePlayerScore
+      {
+        PlayerName = mPlayer1Name,
+        Score = 0
+      };
+      
+      m_playerScore2 = new GamePlayerScore
+      {
+        PlayerName = mPlayer2Name,
+        Score = 0
+      };
     }
 
     public void WonPoint(string playerName)
     {
-      if (playerName == m_player1Name)
+      if (playerName == m_playerScore1.PlayerName)
       {
-        m_score1 += 1;
+        m_playerScore1.Score ++;
       }
-      else if (playerName == m_player2Name)
+      else if (playerName == m_playerScore2.PlayerName)
       {
-        m_score2 += 1;
+        m_playerScore2.Score ++;
       }
     }
 
     public string GetScore()
     {
-      String score = "";
-      int tempScore = 0;
-      if (m_score1 == m_score2)
-      {
-        switch (m_score1)
-        {
-          case 0:
-            score = "Love-All";
-            break;
-          case 1:
-            score = "Fifteen-All";
-            break;
-          case 2:
-            score = "Thirty-All";
-            break;
-        }
-      }
-      else if (m_score1 >= 4 || m_score2 >= 4)
-      {
-        int minusResult = m_score1 - m_score2;
-        if (minusResult >= 2) score = "Win for player1";
-        else score = "Win for player2";
-      }
-      else
-      {
-        for (int i = 1; i < 3; i++)
-        {
-          if (i == 1) tempScore = m_score1;
-          else
-          {
-            score += "-";
-            tempScore = m_score2;
-          }
-          switch (tempScore)
-          {
-            case 0:
-              score += "Love";
-              break;
-            case 1:
-              score += "Fifteen";
-              break;
-            case 2:
-              score += "Thirty";
-              break;
-            case 3:
-              score += "Forty";
-              break;
-          }
-        }
-      }
-      return score;
+      GameResult result = ProgressEvaluator.GetProgress(m_playerScore1, m_playerScore2);
+      return GameResultComposer.GetResultText(result);
     }
   }
 }
