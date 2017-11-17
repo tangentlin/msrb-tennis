@@ -11,6 +11,8 @@ namespace Tennis.Rules
     public GameSummaryResult GetProgress(GamePlayerScore score1, GamePlayerScore score2)
     {
       GameSummaryResult result = new GameSummaryResult();
+      result.PlayerScore1 = score1;
+      result.PlayerScore2 = score2;
       
       // First, take care of the bad scoring situation
       // This is unlikely through regular score keep
